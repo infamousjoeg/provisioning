@@ -8,7 +8,6 @@ Ansible >= v2.5
 
 ## Role Variables
 
-<<<<<<< HEAD
 `cyberark_api_base_url`* The base URL of the CyberArk Web Services Management API (Example: https://pvwa.cyberark.com)
 `cyberark_auth_type`* The authentication method to use (CyberArk/LDAP/Radius/Windows)
 `cyberark_validate_certs` Boolean value to validate SSL (yes/no)
@@ -29,73 +28,6 @@ Ansible >= v2.5
 `cyberark_acct_accessRestrictedToRemoteMachines` Boolean value to restrict access only to specific remote machines listed (yes/no)
 
 ## Example Method to Randomize Password
-=======
-### prov_api_base_url
-
-The base URL of the CyberArk Web Services Management API.
-
-```yaml
-prov_api_base_url: https://components.cyberarkdemo.example
-```
-
-### prov_validate_certs
-
-Boolean value to validate SSL
-
-```yaml
-prov_validate_certs: <yes/no>
-```
-
-### prov_username
-
-API authorized username
-
-```yaml
-prov_username: <api_username>
-```
-
-### prov_password
-
-API authorized username's password
-
-```yaml
-prov_password: <api_password>
-```
-
-### prov_acct_name
-
-Credential object's unique "Name" value from PVWA
-
-```yaml
-prov_acct_name: <objectName>
-```
-
-### prov_acct_address
-
-Credential object's address value from PVWA
-
-```yaml
-prov_acct_address: <address>
-```
-
-### prov_acct_username
-
-Credential object's username value from PVWA
-
-```yaml
-prov_acct_username: <username>
-```
-
-### prov_acct_password
-
-Credential object's password value from PVWA
-
-```yaml
-prov_acct_password: <password>
-```
-
-#### Example Secure Method to Randomize Password
->>>>>>> 3e1ebe9cf27050a182bec381b0c399e3f1fd39b0
 
 ```yaml
 - name: Set Fact with Randomized Password for User
