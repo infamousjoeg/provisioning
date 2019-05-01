@@ -8,51 +8,24 @@ Ansible >= v2.5
 
 ## Role Variables
 
-`cyberark_api_base_url`* The base URL of the CyberArk Web Services Management API (Example: https://pvwa.cyberark.com)
-
-`cyberark_auth_type`* The authentication method to use (CyberArk/LDAP/Radius/Windows)
-
-`cyberark_validate_certs` Boolean value to validate SSL (yes/no)
-
-`cyberark_username`* API authorized username
-
-`cyberark_password`* API authorized username's password
-
-`cyberark_acct_name` Credential object's unique "Name" value from PVWA
-
-`cyberark_acct_address` Credential object's address value from PVWA
-
-`cyberark_acct_username` Credential object's username value from PVWA
-
-`cyberark_acct_password` Credential object's password value from PVWA
-
-`cyberark_acct_platformId`* Platform to manage the credential object
-
-`cyberark_acct_safeName`* Safe to store the credential object within
-
-`cyberark_acct_secretType` The type of secret being onboarded (password/key)
-
-`cyberark_acct_autoManagement` Boolean value to enable/disable automatic management of the credential object (yes/no)
-
-`cyberark_acct_manualReason` The reason automatic management is being disabled on the credential object
-
-`cyberark_acct_logonDomain` The logon domain to be used for the credential object (LOGONDOMAIN\Administrator)
-
-`cyberark_acct_port` The port used for automatic management and connections using the credential object
-
-`cyberark_acct_remoteMachines` List of remote machines the credential object may connect to (Example: server1.cyberark.com;server2.cyberark.com)
-
+`cyberark_api_base_url`* The base URL of the CyberArk Web Services Management API (Example: https://pvwa.cyberark.com)\
+`cyberark_auth_type`* The authentication method to use (CyberArk/LDAP/Radius/Windows)\
+`cyberark_validate_certs` Boolean value to validate SSL (yes/no)\
+`cyberark_username`* API authorized username\
+`cyberark_password`* API authorized username's password\
+`cyberark_acct_name` Credential object's unique "Name" value from PVWA\
+`cyberark_acct_address` Credential object's address value from PVWA\
+`cyberark_acct_username` Credential object's username value from PVWA\
+`cyberark_acct_password` Credential object's password value from PVWA\
+`cyberark_acct_platformId`* Platform to manage the credential object\
+`cyberark_acct_safeName`* Safe to store the credential object within\
+`cyberark_acct_secretType` The type of secret being onboarded (password/key)\
+`cyberark_acct_autoManagement` Boolean value to enable/disable automatic management of the credential object (yes/no)\
+`cyberark_acct_manualReason` The reason automatic management is being disabled on the credential object\
+`cyberark_acct_logonDomain` The logon domain to be used for the credential object (LOGONDOMAIN\Administrator)\
+`cyberark_acct_port` The port used for automatic management and connections using the credential object\
+`cyberark_acct_remoteMachines` List of remote machines the credential object may connect to (Example: server1.cyberark.com;server2.cyberark.com)\
 `cyberark_acct_accessRestrictedToRemoteMachines` Boolean value to restrict access only to specific remote machines listed (yes/no)
-
-
-## Example Method to Randomize Password
-
-```yaml
-- name: Set Fact with Randomized Password for User
-  set_fact:
-    cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
-  no_log: yes
-```
 
 ## Example Playbook
 
@@ -60,10 +33,9 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
 
 ```yaml
 ---
-### Play to deploy a LAMP stack
 - hosts: all
 
-  tasks:
+  pre_tasks:
     - name: Install Apache & PHP
       yum:
         name: "{{ item }}"
@@ -101,6 +73,7 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
         dest: "/var/www/html/index.php"
         content: |
           <?php echo "Hello World!"; ?>
+      
     - name: Install MariaDB Package
       yum:
         name: "{{ item }}"
@@ -165,13 +138,6 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
       copy:
         src: files/db.php
         dest: /var/www/html/db.php
-
-### Play to onboard MySQL Database sa account into PAS Core
-- hosts: localhost
-  vars:
-    cyberark_address: "{{ hostvars['localhost']['mysql_address'] }}"
-    cyberark_username: "{{ hostvars['localhost']['mysql_username'] }}"
-    cyberark_password: "{{ hostvars['localhost']['mysql_password'] }}"
 
   roles:
     - role: provisioning

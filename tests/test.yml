@@ -1,8 +1,7 @@
 ---
-### Play to deploy a LAMP stack
 - hosts: all
 
-  tasks:
+  pre_tasks:
     - name: Install Apache & PHP
       yum:
         name: "{{ item }}"
@@ -40,6 +39,7 @@
         dest: "/var/www/html/index.php"
         content: |
           <?php echo "Hello World!"; ?>
+      
     - name: Install MariaDB Package
       yum:
         name: "{{ item }}"
@@ -104,13 +104,6 @@
       copy:
         src: files/db.php
         dest: /var/www/html/db.php
-
-### Play to onboard MySQL Database sa account into PAS Core
-- hosts: localhost
-  vars:
-    cyberark_address: "{{ hostvars['localhost']['mysql_address'] }}"
-    cyberark_username: "{{ hostvars['localhost']['mysql_username'] }}"
-    cyberark_password: "{{ hostvars['localhost']['mysql_password'] }}"
 
   roles:
     - role: provisioning
