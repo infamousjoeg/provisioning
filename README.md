@@ -142,7 +142,7 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
         dest: /var/www/html/db.php
 
   roles:
-    - role: provisioning
+    - role: cyberark.provisioning
       cyberark_api_base_url: https://pvwa.cyberark.com
       cyberark_auth_type: LDAP
       cyberark_validate_certs: yes
