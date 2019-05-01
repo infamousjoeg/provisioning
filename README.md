@@ -8,7 +8,7 @@ Ansible >= v2.5
 
 ## Role Variables
 
-`cyberark_api_base_url`* The base URL of the CyberArk Web Services Management API (Example: https://pvwa.cyberark.com)\
+`cyberark_api_base_url`* The base URL of the CyberArk Web Services Management API (Example: https://pvwa.cyberark.com) \
 `cyberark_auth_type`* The authentication method to use (CyberArk/LDAP/Radius/Windows)\
 `cyberark_validate_certs` Boolean value to validate SSL (yes/no)\
 `cyberark_username`* API authorized username\
