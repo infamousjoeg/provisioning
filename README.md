@@ -37,7 +37,8 @@ prov_username: <api_username>
 API authorized username's password
 
 ```yaml
-prov_password: <api_password>```
+prov_password: <api_password>
+```
 
 ### prov_acct_name
 
