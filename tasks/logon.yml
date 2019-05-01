@@ -1,10 +1,14 @@
 ---
 - name: Logon to CyberArk Web Services (Management API)
   uri:
-    url: "{{ prov_api_base_url }}"
+    url: "{{ cyberark_api_base_url }}/PasswordVault/API/Auth/{{ cyberark_auth_type }}/Logon"
     method: POST
-    validate_certs: "{{ prov_validate_certs }}"
+    status_code: 200
+    validate_certs: "{{ cyberark_validate_certs }}"
     headers:
       Content-Type: application/json
-    body: "{ 'username': '{{ prov_username }}', 'password': '{{ prov_password }}'"
-  register: prov_auth_token
+    body: 
+      username: "{{ cyberark_username }}"
+      password": "{{ cyberark_password }}"
+    body_format: json
+  register: cyberark_auth_token

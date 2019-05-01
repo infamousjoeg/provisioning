@@ -1,0 +1,10 @@
+---
+- name: Logon to CyberArk Web Services (Management API)
+  uri:
+    url: "{{ cyberark_api_base_url }}/PasswordVault/API/Auth/Logoff"
+    method: POST
+    status_code: 200
+    validate_certs: "{{ cyberark_validate_certs }}"
+    headers:
+      Content-Type: application/json
+      Authorization: "{{ cyberark_auth_token }}"

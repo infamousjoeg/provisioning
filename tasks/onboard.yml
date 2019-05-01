@@ -1,25 +1,28 @@
 ---
 - name: Add Account to CyberArk Core Privileged Access Security (PAS)
   uri:
-    url: "{{ prov_api_base_url }}"
+    url: "{{ cyberark_api_base_url }}/PasswordVault/API/Accounts"
     method: POST
+    status_code: 201
+    validate_certs: "{{ cyberark_validate_certs }}"
     headers:
-      Authorization: "{{ prov_auth_token }}"
+      Authorization: "{{ cyberark_auth_token }}"
       Content-Type: application/json
-    body: "{
-              'name': '{{ prov_acct_name }}',
-              'address': '{{ prov_acct_address }}',
-              'userName': '{{ prov_acct_username }}',
-              'platformId': '{{ prov_acct_platformId }}',
-              'safeName': '{{ prov_acct_safeName }}',
-              'secretType': '{{ prov_acct_secretType }}',
-              'secret': '{{ prov_acct_password }}',
-              'platformAccountProperties': {
-                  'LogonDomain': '{{ prov_acct_logonDomain }}',
-                  'Port': '{{ prov_acct_port }}'
-              },
-              'remoteMachinesAccess': {
-                  'remoteMachines': '{{ prov_acct_remoteMachines }}',
-                  'accessRestrictedToRemoteMachines': '{{ prov_acct_accessRestrictedToRemoteMachines }}'
-              }
-            }"
+    body:
+      name: "{{ cyberark_acct_name }}"
+      address: "{{ cyberark_acct_address }}"
+      userName: "{{ cyberark_acct_username }}"
+      platformId: "{{ cyberark_acct_platformId }}"
+      safeName: "{{ cyberark_acct_safeName }}"
+      secretType: "{{ cyberark_acct_secretType }}"
+      secret: "{{ cyberark_acct_password }}"
+      secretManagement:
+        automaticManagementEnabled: "{{ cyberark_acct_autoManagement }}"
+        manualManagementReason: "{{ cyberark_acct_manualReason }}"
+      platformAccountProperties:
+        LogonDomain: "{{ cyberark_acct_logonDomain }}"
+        Port: "{{ cyberark_acct_port }}"
+      remoteMachinesAccess:
+        remoteMachines: "{{ cyberark_acct_remoteMachines }}"
+        accessRestrictedToRemoteMachines: "{{ cyberark_acct_accessRestrictedToRemoteMachines }}"
+    body_format: json
