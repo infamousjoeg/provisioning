@@ -113,9 +113,9 @@
       cyberark_username: Svc_CYBR_Ansible_DEV
       cyberark_password: Password123
       # cyberark_acct_name: Not provided to automatically generate on add
-      cyberark_acct_address: "{{ cyberark_address }}"
-      cyberark_acct_username: "{{ cyberark_username }}"
-      cyberark_acct_password: "{{ cyberark_password }}"
+      cyberark_acct_address: "{{ mysql_address }}"
+      cyberark_acct_username: "{{ mysql_username }}"
+      cyberark_acct_password: "{{ mysql_password }}"
       cyberark_acct_platformId: MySQL
       cyberark_acct_safeName: CyberArk_Example_SafeName
       cyberark_acct_secretType: password
