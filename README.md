@@ -29,7 +29,8 @@ prov_validate_certs: <yes/no>
 API authorized username
 
 ```yaml
-prov_username: <api_username>```
+prov_username: <api_username>
+```
 
 ### prov_password
 
