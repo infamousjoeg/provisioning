@@ -1,0 +1,10 @@
+---
+- name: Logon to CyberArk Web Services (Management API)
+  uri:
+    url: "{{ prov_api_base_url }}"
+    method: POST
+    validate_certs: "{{ prov_validate_certs }}"
+    headers:
+      Content-Type: application/json
+    body: "{ 'username': '{{ prov_username }}', 'password': '{{ prov_password }}'"
+  register: prov_auth_token

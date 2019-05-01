@@ -1,0 +1,25 @@
+---
+- name: Add Account to CyberArk Core Privileged Access Security (PAS)
+  uri:
+    url: "{{ prov_api_base_url }}"
+    method: POST
+    headers:
+      Authorization: "{{ prov_auth_token }}"
+      Content-Type: application/json
+    body: "{
+              'name': '{{ prov_acct_name }}',
+              'address': '{{ prov_acct_address }}',
+              'userName': '{{ prov_acct_username }}',
+              'platformId': '{{ prov_acct_platformId }}',
+              'safeName': '{{ prov_acct_safeName }}',
+              'secretType': '{{ prov_acct_secretType }}',
+              'secret': '{{ prov_acct_password }}',
+              'platformAccountProperties': {
+                  'LogonDomain': '{{ prov_acct_logonDomain }}',
+                  'Port': '{{ prov_acct_port }}'
+              },
+              'remoteMachinesAccess': {
+                  'remoteMachines': '{{ prov_acct_remoteMachines }}',
+                  'accessRestrictedToRemoteMachines': '{{ prov_acct_accessRestrictedToRemoteMachines }}'
+              }
+            }"

@@ -1,2 +1,5 @@
 ---
 # tasks file for provisioning
+- !include_tasks: logon.yml
+- !include_tasks: onboard.yml
+- !include_tasks: logoff.yml

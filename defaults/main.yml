@@ -1,2 +1,3 @@
 ---
 # defaults file for provisioning
+- validate_certs: no
