@@ -27,7 +27,7 @@ Ansible >= v2.5
 | `cyberark_acct_logonDomain` | The logon domain to be used for the credential object (LOGONDOMAIN\Administrator) | No
 | `cyberark_acct_port` | The port used for automatic management and connections using the credential object | No
 | `cyberark_acct_remoteMachines` | List of remote machines the credential object may connect to (Example: server1.cyberark.com;server2.cyberark.com) | No
-| `cyberark_acct_accessRestrictedToRemoteMachines` | Boolean value to restrict access only to specific remote machines listed (yes/no) | No
+| `cyberark_acct_accessRestricted` | Boolean value to restrict access only to specific remote machines listed (yes/no) | No
 
 ## Example Playbook
 
@@ -160,7 +160,7 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
       # cyberark_acct_logonDomain: Not needed in this example
       cyberark_acct_port: 3306
       # cyberark_acct_remoteMachines: Not needed in this example
-      cyberark_acct_accessRestrictedToRemoteMachines: no
+      cyberark_acct_accessRestricted: no
 ```
 
 ## License

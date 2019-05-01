@@ -124,4 +124,4 @@
       # cyberark_acct_logonDomain: Not needed in this example
       cyberark_acct_port: 3306
       # cyberark_acct_remoteMachines: Not needed in this example
-      cyberark_acct_accessRestrictedToRemoteMachines: no
+      cyberark_acct_accessRestricted: no

@@ -24,5 +24,5 @@
         Port: "{{ cyberark_acct_port }}"
       remoteMachinesAccess:
         remoteMachines: "{{ cyberark_acct_remoteMachines }}"
-        accessRestrictedToRemoteMachines: "{{ cyberark_acct_accessRestrictedToRemoteMachines }}"
+        accessRestrictedToRemoteMachines: "{{ cyberark_acct_accessRestricted }}"
     body_format: json

@@ -4,4 +4,4 @@
 - cyberark_validate_certs: yes
 - cyberark_secretType: password
 - cyberark_acct_autoManagement: yes
-- cyberark_acct_accessRestrictedToRemoteMachines: no
+- cyberark_acct_accessRestricted: no
