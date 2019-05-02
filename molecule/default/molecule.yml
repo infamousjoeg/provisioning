@@ -14,10 +14,6 @@ platforms:
     image: amazonlinux:latest
     groups:
       - gamazon
-  - name: centos
-    image: centos:7
-    groups:
-      - gcentos
   - name: debian
     image: debian:latest
     groups:
@@ -26,10 +22,6 @@ platforms:
     image: fedora:latest
     groups:
       - gfedora
-  - name: opensuse
-    image: opensuse:latest
-    groups:
-      - gopensuse
   - name: ubuntu
     image: ubuntu:latest
     groups:
