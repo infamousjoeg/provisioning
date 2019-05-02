@@ -7,8 +7,8 @@
     validate_certs: "{{ cyberark_validate_certs }}"
     headers:
       Content-Type: application/json
-    body: 
+    body:
       username: "{{ cyberark_username }}"
-      password": "{{ cyberark_password }}"
+      password: "{{ cyberark_password }}"
     body_format: json
   register: cyberark_auth_token

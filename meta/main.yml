@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Joe Garcia, CISSP
   description: Onboarding and offboarding of credential objects in CyberArk's Core Privileged Access Security (PAS) solution
@@ -8,54 +9,39 @@ galaxy_info:
   min_ansible_version: 2.5
 
   platforms:
-  - name: Alpine
-    versions:
-    - all
-  - name: Amazon
-    versions:
-    - all
-  - name: Debian
-    versions:
-    - all
-  - name: EL
-    versions:
-    - all
-  - name: Fedora
-    versions:
-    - all
-  - name: FreeBSD
-    versions:
-    - all
-  - name: GenericLinux
-    versions:
-    - all
-  - name: MacOSX
-    versions:
-    - all
-  - name: OpenBSD
-    versions:
-    - all
-  - name: opensuse
-    versions:
-    - all
-  - name: SLES
-    versions:
-    - all
-  - name: Solaris
-    versions:
-    - all
-  - name: Ubuntu
-    versions:
-    - all
+    - name: Alpine
+      versions:
+        - all
+    - name: Amazon
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: MacOSX
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
 
   galaxy_tags:
-  - cyberark
-  - identity
-  - password
-  - privileged
-  - vault
-  - provision
-  - onboard
-  - offboard
+    - cyberark
+    - identity
+    - password
+    - privileged
+    - vault
+    - provision
+    - onboard
+    - offboard
 
   dependencies: []

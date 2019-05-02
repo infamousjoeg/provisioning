@@ -1,7 +1,11 @@
 ---
 # defaults file for provisioning
-- cyberark_auth_type: CyberArk
-- cyberark_validate_certs: yes
-- cyberark_secretType: password
-- cyberark_acct_autoManagement: yes
-- cyberark_acct_accessRestricted: no
+cyberark_auth_type: CyberArk
+cyberark_validate_certs: yes
+cyberark_acct_name: ""
+cyberark_acct_address: ""
+cyberark_acct_username: ""
+cyberark_acct_secretType: password
+cyberark_acct_secret: ""
+cyberark_acct_autoManagement: yes
+cyberark_acct_manualReason: ""

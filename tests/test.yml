@@ -1,5 +1,9 @@
 ---
 - hosts: all
+  vars_prompt:
+    - name: "REST API Password"
+      prompt: "Enter Password"
+      private: yes
 
   pre_tasks:
     - name: Install Apache & PHP
@@ -72,7 +76,7 @@
 
     - name: Set Fact with MySQL Database Username
       set_fact:
-        mysql_username: demo
+        mysql_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
 
     - name: Set Fact with Randomized Password for MySQL Database User
       set_fact:
@@ -107,21 +111,17 @@
 
   roles:
     - role: provisioning
-      cyberark_api_base_url: https://pvwa.cyberark.com
-      cyberark_auth_type: LDAP
-      cyberark_validate_certs: yes
-      cyberark_username: Svc_CYBR_Ansible_DEV
-      cyberark_password: Password123
-      # cyberark_acct_name: Not provided to automatically generate on add
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: CyberArk
+      cyberark_validate_certs: no
+      cyberark_username: jgarcia
+      cyberark_password: "{{ cyberark_password }}"
+      cyberark_acct_name: TEST-AUTO-ONBOARD_{{ mysql_address }}_{{ mysql_username }}
       cyberark_acct_address: "{{ mysql_address }}"
       cyberark_acct_username: "{{ mysql_username }}"
       cyberark_acct_password: "{{ mysql_password }}"
       cyberark_acct_platformId: MySQL
-      cyberark_acct_safeName: CyberArk_Example_SafeName
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
       cyberark_acct_secretType: password
-      cyberark_acct_autoManagement: yes
-      # cyberark_acct_manualReason: Not needed in this example
-      # cyberark_acct_logonDomain: Not needed in this example
-      cyberark_acct_port: 3306
-      # cyberark_acct_remoteMachines: Not needed in this example
-      cyberark_acct_accessRestricted: no
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Testing Ansible role orchestration

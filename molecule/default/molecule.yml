@@ -1,0 +1,44 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: alpine
+    image: alpine:latest
+    groups:
+      - galpine
+  - name: amazon
+    image: amazonlinux:latest
+    groups:
+      - gamazon
+  - name: centos
+    image: centos:7
+    groups:
+      - gcentos
+  - name: debian
+    image: debian:latest
+    groups:
+      - gdebian
+  - name: fedora
+    image: fedora:latest
+    groups:
+      - gfedora
+  - name: opensuse
+    image: opensuse:latest
+    groups:
+      - gopensuse
+  - name: ubuntu
+    image: ubuntu:latest
+    groups:
+      - gubuntu
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

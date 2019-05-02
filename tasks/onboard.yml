@@ -1,12 +1,12 @@
 ---
-- name: Add Account to CyberArk Core Privileged Access Security (PAS)
+- name: Add Account to CyberArk Privileged Access Security (PAS) Core
   uri:
     url: "{{ cyberark_api_base_url }}/PasswordVault/API/Accounts"
     method: POST
     status_code: 201
     validate_certs: "{{ cyberark_validate_certs }}"
     headers:
-      Authorization: "{{ cyberark_auth_token }}"
+      Authorization: "{{ cyberark_auth_token.json }}"
       Content-Type: application/json
     body:
       name: "{{ cyberark_acct_name }}"
@@ -19,10 +19,4 @@
       secretManagement:
         automaticManagementEnabled: "{{ cyberark_acct_autoManagement }}"
         manualManagementReason: "{{ cyberark_acct_manualReason }}"
-      platformAccountProperties:
-        LogonDomain: "{{ cyberark_acct_logonDomain }}"
-        Port: "{{ cyberark_acct_port }}"
-      remoteMachinesAccess:
-        remoteMachines: "{{ cyberark_acct_remoteMachines }}"
-        accessRestrictedToRemoteMachines: "{{ cyberark_acct_accessRestricted }}"
     body_format: json

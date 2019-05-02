@@ -15,7 +15,7 @@ Ansible >= v2.5
 | `cyberark_validate_certs` | Boolean value to validate SSL (yes/no) | No
 | `cyberark_username` | API authorized username | Yes
 | `cyberark_password` | API authorized username's password | Yes
-| `cyberark_acct_name` | Credential object's unique "Name" value from PVWA | No
+| `cyberark_acct_name` | Credential object's unique "Name" value from PVWA | Yes
 | `cyberark_acct_address` | Credential object's address value from PVWA | No
 | `cyberark_acct_username` | Credential object's username value from PVWA | No
 | `cyberark_acct_password` | Credential object's password value from PVWA | No
@@ -24,10 +24,6 @@ Ansible >= v2.5
 | `cyberark_acct_secretType` | The type of secret being onboarded (password/key) | Yes
 | `cyberark_acct_autoManagement` | Boolean value to enable/disable automatic management of the credential object (yes/no) | No
 | `cyberark_acct_manualReason` | The reason automatic management is being disabled on the credential object | No
-| `cyberark_acct_logonDomain` | The logon domain to be used for the credential object (LOGONDOMAIN\Administrator) | No
-| `cyberark_acct_port` | The port used for automatic management and connections using the credential object | No
-| `cyberark_acct_remoteMachines` | List of remote machines the credential object may connect to (Example: server1.cyberark.com;server2.cyberark.com) | No
-| `cyberark_acct_accessRestricted` | Boolean value to restrict access only to specific remote machines listed (yes/no) | No
 
 ## Example Playbook
 
@@ -148,7 +144,7 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
       cyberark_validate_certs: yes
       cyberark_username: Svc_CYBR_Ansible_DEV
       cyberark_password: Password123
-      # cyberark_acct_name: Not provided to automatically generate on add
+      cyberark_acct_name: CyberArk_Example_SafeName-{{ mysql_address }}-{{ mysql_username }}
       cyberark_acct_address: "{{ mysql_address }}"
       cyberark_acct_username: "{{ mysql_username }}"
       cyberark_acct_password: "{{ mysql_password }}"
@@ -157,10 +153,24 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
       cyberark_acct_secretType: password
       cyberark_acct_autoManagement: yes
       # cyberark_acct_manualReason: Not needed in this example
-      # cyberark_acct_logonDomain: Not needed in this example
-      cyberark_acct_port: 3306
-      # cyberark_acct_remoteMachines: Not needed in this example
-      cyberark_acct_accessRestricted: no
+```
+
+## Test
+
+### Requirements
+
+* Python 2.7.x
+* Docker CE
+* Ansible >= 2.5
+* `pip install --user molecule`
+* `pip install molecule[docker]`
+
+### Usage
+
+Test using Ansible Molecule:
+
+```
+molecule test
 ```
 
 ## License

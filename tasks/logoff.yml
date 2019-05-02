@@ -7,4 +7,4 @@
     validate_certs: "{{ cyberark_validate_certs }}"
     headers:
       Content-Type: application/json
-      Authorization: "{{ cyberark_auth_token }}"
+      Authorization: "{{ cyberark_auth_token.json }}"

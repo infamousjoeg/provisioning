@@ -1,0 +1,133 @@
+---
+- name: Converge Alpine
+  hosts: galpine
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_Alpine
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
+
+- name: Converge Amazon Linux
+  hosts: gamazon
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_Amazon
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
+
+- name: Converge CentOS
+  hosts: gcentos
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_CentOS
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
+
+- name: Converge Debian
+  hosts: gdebian
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_Debian
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
+
+- name: Converge Fedora
+  hosts: gfedora
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_Fedora
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
+
+- name: Converge OpenSUSE
+  hosts: gopensuse
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_openSUSE
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
+
+- name: Converge Ubuntu
+  hosts: gubuntu
+  roles:
+    - role: provisioning
+      cyberark_api_base_url: https://components.cyberarkdemo.example
+      cyberark_auth_type: LDAP
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_Ubuntu
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD_testuser{{ lookup('password', '/dev/null length=3 chars=ascii_letters') }}
+      cyberark_acct_address: cyberarkdemo.example
+      cyberark_acct_username: "{{ lookup('password', '/dev/null length=10 chars=ascii_letters') }}"
+      cyberark_acct_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      cyberark_acct_platformId: WinDomain
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: Just testing dummy account onboarding via Ansible role
+      cyberark_acct_logonDomain: CYBERARKDEMO
