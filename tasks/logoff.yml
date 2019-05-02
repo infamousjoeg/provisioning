@@ -1,5 +1,5 @@
 ---
-- name: Logon to CyberArk Web Services (Management API)
+- name: Logoff to CyberArk Web Services (Management API)
   uri:
     url: "{{ cyberark_api_base_url }}/PasswordVault/API/Auth/Logoff"
     method: POST
