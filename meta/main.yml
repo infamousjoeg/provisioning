@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Joe Garcia, CISSP
-  description: Onboarding and offboarding of credential objects in CyberArk's Core Privileged Access Security (PAS) solution
+  description: Onboarding and offboarding of credential objects in CyberArk's Privileged Access Security (PAS) Core solution
   company: CyberArk
 
   license: MIT
@@ -23,7 +23,11 @@ galaxy_info:
         - all
     - name: Fedora
       versions:
-        - all
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
     - name: MacOSX
       versions:
         - all
