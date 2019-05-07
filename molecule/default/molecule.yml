@@ -18,6 +18,10 @@ platforms:
     image: debian:latest
     groups:
       - gdebian
+  - name: centos
+    image: centos:7
+    groups:
+      - gcentos
   - name: fedora
     image: fedora:latest
     groups:
