@@ -31,28 +31,18 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
 
 ```yaml
 ---
-- hosts: all
+- hosts: localhost
 
   pre_tasks:
     - name: Install Apache & PHP
       yum:
-        name: "{{ item }}"
+        name: ['httpd', 'php', 'php-mysql']
         state: present
-      with_items:
-          - httpd
-          - php
-          - php-mysql
 
     - name: Install Web Role Specific Dependencies
       yum:
-        name: "{{ item }}"
+        name: ['git', 'wget', 'curl', 'jq', 'libsemanage-python']
         state: present
-      with_items:
-          - git
-          - wget
-          - curl
-          - jq
-          - libsemanage-python
 
     - name: Start Apache
       service:
@@ -74,11 +64,8 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
       
     - name: Install MariaDB Package
       yum:
-        name: "{{ item }}"
+        name: ['mariadb-server', 'MySQL-python']
         state: present
-      with_items:
-          - mariadb-server
-          - MySQL-python
 
     - name: Configure SELinux to Start MySQL on Any Port 
       seboolean:
@@ -94,7 +81,7 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
 
     - name: Create a New Database
       mysql_db:
-        name: sa
+        name: demo
         state: present
         collation: utf8_general_ci
 
@@ -139,21 +126,23 @@ An example of deploying a LAMP stack and onboarding the resulting MySQL database
 
   roles:
     - role: infamousjoeg.provisioning
-      cyberark_api_base_url: https://pvwa.cyberark.com
+      cyberark_api_base_url: https://components.cyberarkdemo.example
       cyberark_auth_type: LDAP
-      cyberark_validate_certs: yes
-      cyberark_username: Svc_CYBR_Ansible_DEV
-      cyberark_password: Password123
-      cyberark_acct_name: CyberArk_Example_SafeName-{{ mysql_address }}-{{ mysql_username }}
+      cyberark_validate_certs: no
+      cyberark_username: Svc_ProvTest_Fedora
+      cyberark_password: Cyberark1
+      cyberark_acct_name: TEST-AUTO-ONBOARD-{{ mysql_address }}-{{ mysql_username }}
       cyberark_acct_address: "{{ mysql_address }}"
       cyberark_acct_username: "{{ mysql_username }}"
       cyberark_acct_password: "{{ mysql_password }}"
       cyberark_acct_platformId: MySQL
-      cyberark_acct_safeName: CyberArk_Example_SafeName
+      cyberark_acct_safeName: TEST-AUTO-ONBOARD
       cyberark_acct_secretType: password
-      cyberark_acct_autoManagement: yes
-      # cyberark_acct_manualReason: Not needed in this example
+      cyberark_acct_autoManagement: no
+      cyberark_acct_manualReason: For demo purposes
 ```
+
+[![asciicast](https://asciinema.org/a/245088.svg)](https://asciinema.org/a/245088)
 
 ## Test
 
