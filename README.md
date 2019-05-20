@@ -2,6 +2,8 @@
 
 An Ansible role to ease the task of onboarding accounts into CyberArk's Core Privileged Access Security (PAS) using CyberArk's Management API.
 
+[Available on Ansible Galaxy](https://galaxy.ansible.com/infamousjoeg/provisioning)
+
 ## Requirements
 
 Ansible >= v2.5
